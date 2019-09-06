@@ -1,0 +1,12 @@
+td {
+
+  width: 14.258%;
+  padding-bottom: 14.258%; /* = width for a 1:1 aspect ratio */
+  background-color: white;
+  border: 3px solid white;
+  font-size:60px;
+  color:black;
+  border-radius: 10px 10px 10px 10px;
+ /*background-color:#1e1e1e;*/
+}
+ 
