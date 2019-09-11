@@ -3,7 +3,8 @@ let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
-
+var boxes = [];
+var date;
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 let monthAndYear = document.getElementById("monthAndYear");
@@ -44,43 +45,108 @@ function showCalendar(month, year) {
     selectMonth.value = month;
 
     // creating all cells
-    let date = 1;
+    date = 1;
+
+    //this is from tic tac toe 
+    var board = document.createElement('table');
+    board.setAttribute('border', 1);
+    board.setAttribute('cellspacing', 0);
+
+
+    var identifier = 1;
     for (let i = 0; i < 6; i++) {
         // creates a table row
         let row = document.createElement("tr");
-
+        board.appendChild(row);
         //creating individual cells, filing them up with data.
         for (let j = 0; j < 7; j++) {
             if (i === 0 && j < firstDay) {
-                let cell = document.createElement("td");
+
+                //this is from tic tac toe
+                var cell = document.createElement('td');
+                cell.setAttribute('height', 120);
+                cell.setAttribute('width', 120);
+                cell.setAttribute('align', 'center');
+                cell.setAttribute('valign', 'center');
+                cell.classList.add('col' + j, 'row' + i);
+
+
+                //let cell = document.createElement("button");
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
+
+                //tic tac toe
+                cell.identifier = identifier;
+                cell.addEventListener('click', set);
+                row.appendChild(cell);
+                boxes.push(cell);
+                identifier += identifier;
             }
             else if (date > daysInMonth) {
                 break;
             }
 
             else {
-                let cell = document.createElement("td");
+
+                //this is from tic tac toe
+                var cell = document.createElement('td');
+                cell.setAttribute('height', 120);
+                cell.setAttribute('width', 120);
+                cell.setAttribute('align', 'center');
+                cell.setAttribute('valign', 'center');
+                cell.classList.add('col' + j, 'row' + i);
+
+                //let cell = document.createElement("button");
                 let cellText = document.createTextNode(date);
+                // color today's date
+                cell.appendChild(cellText);
+
+
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
-                } // color today's date
-                cell.appendChild(cellText);
+                }
+
+                
+                    if (year < today.getFullYear() || month <= today.getMonth()) {
+                        cell.addEventListener('click', set);
+                    }
+                
+
+                cell.identifier = identifier;
+
                 row.appendChild(cell);
+                boxes.push(cell);
+                identifier += identifier;
                 date++;
             }
 
 
         }
 
-        tbl.appendChild(row); // appending each row into calendar body.
+        tbl.appendChild(board); // appending each row into calendar body.
     }
 
 }
 
 
-//Tic tak toe react
+function set() {
+    
+    if (this.innerHTML !== 'X' && this.innerHTML !== '') {
+        this.innerHTML = 'X';
+    }
+
+    else {
+        if (this.innerHTML == 'X') {
+
+            this.innerHTML = this.date;
+        }
+
+    }
 
 
+}
+//==============================================
+//************** Tic tak toe js ****************
+//==============================================
+//%%%%%%%%%%%%%%%%%%  js  %%%%%%%%%%%%%%%%%%%%%%
