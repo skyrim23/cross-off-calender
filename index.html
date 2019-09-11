@@ -43,19 +43,7 @@
           class="table table-hover table-bordered table-responsive-lg"
           id="calendar"
         >
-          <!--
-            <thead>
-            <tr class="table-active d-flex">
-              <th class="text-danger col-1">Sun</th>
-              <th class="col-2">Mon</th>
-              <th class="col-3">Tue</th>
-              <th class="col-4">Wed</th>
-              <th class="col-5">Thu</th>
-              <th class="col-6">Fri</th>
-              <th class="col-7">Sat</th>
-            </tr>
-          </thead>
-          -->
+         
 
           <thead>
             <tr class="table-active">
@@ -71,29 +59,15 @@
             </tr>
           </thead>
 
-          <tbody class="lg" id="calendar-body"></tbody>
+          
         </table>
+        <div class="container">
+      
+          <!-- for the below div class="lg" was given-->
+        <div id="calendar-body"></div>
+      </div>
         <!--this id for button previous and next- not needed-->
-        <!--
-        <div class="form-inline">
-          <button
-            class="btn btn-outline-primary col-sm-6"
-            id="previous"
-            onclick="previous()"
-          >
-            Previous
-          </button>
-
-          <button
-            class="btn btn-outline-primary col-sm-6"
-            id="next"
-            onclick="next()"
-          >
-            Next
-          </button>
-        </div>
-        <br />
-        -->
+        
         <form class="form-inline">
           <label class="lead mr-2 ml-2" for="month">Jump To </label>
           <select
